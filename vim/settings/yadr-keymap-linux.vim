@@ -13,10 +13,10 @@
 " Now using the middle finger of either hand you can type
 " underscores with Alt-k or Alt-d, and add Shift
 " to type dashes
-imap <silent> <A-k> _
-imap <silent> <A-d> _
-imap <silent> <A-K> -
-imap <silent> <A-D> -
+"imap <silent> <A-k> _
+"imap <silent> <A-d> _
+"imap <silent> <A-K> -
+"imap <silent> <A-D> -
 
 " Change inside various enclosures with Alt-" and Alt-'
 " The f makes it find the enclosure so you don't have
@@ -30,7 +30,7 @@ nnoremap <A-]> f]ci]
 
 " ==== NERD tree
 " Alt-Shift-N for nerd tree
-nmap <A-N> :NERDTreeToggle<CR>
+nmap <F2> :NERDTreeToggle<CR>
 
 " move up/down quickly by using Alt-j, Alt-k
 " which will move us around by functions

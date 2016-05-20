@@ -21,12 +21,81 @@ alias yip='yadr init-plugins'
 
 # PS
 alias psa="ps aux"
-alias psg="ps aux | grep "
+alias p="ps aux | grep "
 alias psr='ps aux | grep ruby'
+alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
+
+# Search command line history
+alias h="history | grep "
+
+# Search files in the current folder
+alias f="find . | grep "
+
+# Alias's for safe and forced reboots
+alias reboot='sudo shutdown -r now'
+alias rebootforce='sudo shutdown -r -n now'
+alias shutdown='sudo shutdown -P now'
+
+# Alias's to show disk space and space used in a folder
+alias diskspace="du -S | sort -n -r |more"
+alias folders='du -h --max-depth=1'
+alias folderssort='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
+alias tree='tree -CAhF --dirsfirst'
+alias treed='tree -CAFd'
+alias mountedinfo='df -hT'
+
+# Alias's for archives
+alias mktar='tar -cvf'
+alias mkbz2='tar -cvjf'
+alias mkgz='tar -cvzf'
+alias untar='tar -xvf'
+alias unbz2='tar -xvjf'
+alias ungz='tar -xvzf'
+
+# open files (e.g. PDFs)
+alias go='gnome-open'
+# Show the weather
+alias weather='curl wttr.in/osnabruck'
+
+# ledger basic commands
+alias je='vim ~/projects/ledger/money.ledger'
+alias le='vim ~/projects/ledger/money.ledger'
+alias te='vim ~/projects/ledger/time.ledger'
+alias balance='ledger -f ~/projects/ledger/money.ledger bal not Equity --strict'
+alias cashflow='ledger -f ~/projects/ledger/money.ledger bal Assets --strict'
+alias worth='ledger -f ~/projects/ledger/money.ledger bal Assets Liabilities --strict'
+alias lreg='ledger -f ~/projects/ledger/money.ledger reg --strict'
+alias lbal='ledger -f ~/projects/ledger/money.ledger bal --strict'
+alias budget='ledger -f ~/projects/ledger/money.ledger bal --strict Expenses --add-budget --monthly'
+alias hours='ledger -f ~/projects/ledger/time.ledger bal --strict'
+alias hbal='ledger -f ~/projects/ledger/time.ledger bal --strict'
+alias hreg='ledger -f ~/projects/ledger/time.ledger reg --strict'
+alias hdaily='ledger -f ~/projects/ledger/time.ledger reg --strict virtUOS -D'
+alias hweekly='ledger -f ~/projects/ledger/time.ledger reg --strict virtUOS -W'
+alias hmonthly='ledger -f ~/projects/ledger/time.ledger reg --strict virtUOS -M'
+alias hbreak='ledger -f ~/projects/ledger/time.ledger reg --strict Mensa'
+alias hbudget='ledger -f ~/projects/ledger/time.ledger bal --budget virtUOS'
+
+# Remove a directory and all files
+alias rmd='/bin/rm  --recursive --force --verbose '
+
+# Change directory aliases
+alias home='cd ~'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# apt-get aliases
+alias ag='sudo apt-get'
+alias sag='sudo apt-get'
+alias apt-get='sudo apt-get'
 
 # Moving around
 alias cdb='cd -'
 alias cls='clear;ls'
+alias cll='clear;ll'
 
 # Show human friendly numbers and colors
 alias df='df -h'
@@ -34,7 +103,7 @@ alias du='du -h -d 2'
 
 if [[ $platform == 'linux' ]]; then
   alias ll='ls -alh --color=auto'
-  alias ls='ls --color=auto'
+  alias ls='ls  --color=auto'
 elif [[ $platform == 'darwin' ]]; then
   alias ll='ls -alGh'
   alias ls='ls -Gh'
